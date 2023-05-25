@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-intel_dir=/sys/class/backlight/intel_backlight
+acpi_dir=/sys/class/backlight/acpi_video0
 kbd_dir=/sys/class/leds/smc::kbd_backlight
 
 power_file=/sys/class/power_supply/ADP1/online
-screen_file=$intel_dir/brightness
+screen_file=$acpi_dir/brightness
 kbd_file=$kbd_dir/brightness
 lid_file=/proc/acpi/button/lid/LID0/state
 light_file="/sys/devices/platform/applesmc.768/light"
@@ -12,11 +12,11 @@ light_file="/sys/devices/platform/applesmc.768/light"
 #####################################################
 # wait drivers loaded
 
-$ML_DEBUG && echo checking $intel_dir and $kbd_dir...
-while [ ! -d $intel_dir -o ! -d $kbd_dir ]; do
+$ML_DEBUG && echo checking $acpi_dir and $kbd_dir...
+while [ ! -d $acpi_dir -o ! -d $kbd_dir ]; do
     sleep 1
 done
-screen_max=$(cat $intel_dir/max_brightness)
+screen_max=$(cat $acpi_dir/max_brightness)
 
 #####################################################
 # Settings

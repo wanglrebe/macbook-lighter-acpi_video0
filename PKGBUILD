@@ -1,17 +1,17 @@
-# Maintainer: harttle <yangjvn@126.com>
+# Maintainer: wanglrebe <wangxinyi2002@gmail.com>
 # Inspired by lighter, many thanks to Janhouse's perl script https://github.com/Janhouse/lighter
-pkgname=macbook-lighter
-pkgver=v0.0.2.5.g112c1f0
+pkgname=macbook-lighter-acpi_video0
+pkgver=0.0.1
 pkgrel=1
 pkgdesc="Macbook screen/keyboard backlight CLI and auto-adjust on ambient light"
 arch=(any)
-url="https://github.com/harttle/macbook-lighter"
+url="https://github.com/wanglrebe/macbook-lighter-acpi_video0"
 license=('GPL')
 depends=('bc')
 makedepends=('git')
 provides=()
 conflicts=()
-source=('git+https://github.com/harttle/macbook-lighter.git')
+source=('git+https://github.com/wanglrebe/macbook-lighter-acpi_video0.git')
 md5sums=('SKIP')
 
 pkgver() {
