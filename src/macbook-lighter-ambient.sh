@@ -31,7 +31,7 @@ ML_KBD_BRIGHT=${ML_KBD_BRIGHT:-128}
 ML_BATTERY_DIM=${ML_BATTERY_DIM:-0.2}
 ML_AUTO_KBD=${ML_AUTO_KBD:-true}
 ML_AUTO_SCREEN=${ML_AUTO_SCREEN:-true}
-ML_DEBUG=${ML_DEBUG:-false}
+ML_DEBUG=${ML_DEBUG:-true}
 
 #####################################################
 # Private States
@@ -73,7 +73,7 @@ function screen_range {
 function update_screen {
     light=$1
     screen_from=$(cat $screen_file)
-    screen_to=$(echo "$screen_from * $light / $screen_ajusted_at / 40" | bc)
+    screen_to=$(echo "$screen_from * $light / $screen_ajusted_at" | bc)
     screen_to=$(screen_range $screen_to)
     if (( screen_to - screen_from > -ML_SCREEN_THRESHOLD && screen_to - screen_from < ML_SCREEN_THRESHOLD )); then
         $ML_DEBUG && echo "screen threshold not reached($screen_from->$screen_to), skip update"
