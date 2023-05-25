@@ -1,7 +1,7 @@
 # Maintainer: wanglrebe <wangxinyi2002@gmail.com>
 # Inspired by lighter, many thanks to Janhouse's perl script https://github.com/Janhouse/lighter
 pkgname=macbook-lighter-acpi_video0
-pkgver=0.0.2.3.gb9272b8
+pkgver=0.0.3
 pkgrel=1
 pkgdesc="Macbook screen/keyboard backlight CLI and auto-adjust on ambient light"
 arch=(any)
