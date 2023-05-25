@@ -24,7 +24,7 @@ screen_max=$(cat $acpi_dir/max_brightness)
 ML_DURATION=${ML_DURATION:-1.5}
 ML_FRAME=${ML_DURATION:-0.017}
 ML_INTERVAL=${ML_INTERVAL:-5}
-ML_BRIGHT_ENOUGH=${ML_BRIGHT_ENOUGH:-15}
+ML_BRIGHT_ENOUGH=${ML_BRIGHT_ENOUGH:-40}
 ML_SCREEN_THRESHOLD=${ML_SCREEN_THRESHOLD:-1}
 ML_SCREEN_MIN_BRIGHT=${ML_SCREEN_MIN_BRIGHT:-3}
 ML_KBD_BRIGHT=${ML_KBD_BRIGHT:-128}
@@ -73,7 +73,7 @@ function screen_range {
 function update_screen {
     light=$1
     screen_from=$(cat $screen_file)
-    screen_to=$(echo "$screen_from * $light / $screen_ajusted_at" | bc)
+    screen_to=$(echo "$screen_from * $light / $screen_ajusted_at / 40" | bc)
     screen_to=$(screen_range $screen_to)
     if (( screen_to - screen_from > -ML_SCREEN_THRESHOLD && screen_to - screen_from < ML_SCREEN_THRESHOLD )); then
         $ML_DEBUG && echo "screen threshold not reached($screen_from->$screen_to), skip update"
